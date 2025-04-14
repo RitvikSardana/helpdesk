@@ -5,7 +5,7 @@
     :editor-class="[
       'prose-sm max-w-none',
       editable &&
-        'min-h-[7rem] mx-10 max-h-[50vh] overflow-y-auto border-t py-3',
+        'min-h-[7rem] mx-2.5 md:mx-10 max-h-[50vh] overflow-y-auto border-t py-3',
       getFontFamily(newComment),
     ]"
     :content="newComment"
@@ -18,7 +18,7 @@
   >
     <template #bottom>
       <div v-if="editable" class="flex flex-col gap-2">
-        <div class="flex flex-wrap gap-2 px-10">
+        <div class="flex flex-wrap gap-2 px-2.5 lg:px-10">
           <AttachmentItem
             v-for="a in attachments"
             :key="a.file_url"
