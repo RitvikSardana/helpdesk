@@ -747,7 +747,7 @@ export function isElementInViewport(el: HTMLElement) {
 export function parseApiOptions(
   options: string[] | DropdownOption[]
 ): DropdownOption[] | [] {
-  if (!options.length) return [];
+  if (!options?.length) return [];
   return (
     options
       .filter((o) => Boolean(o))
@@ -801,12 +801,12 @@ export function stripEmailColors(html: string): string {
     else el.removeAttribute("style");
   });
 
-  div.querySelectorAll("[bgcolor]").forEach((el) =>
-    el.removeAttribute("bgcolor")
-  );
-  div.querySelectorAll("font[color]").forEach((el) =>
-    el.removeAttribute("color")
-  );
+  div
+    .querySelectorAll("[bgcolor]")
+    .forEach((el) => el.removeAttribute("bgcolor"));
+  div
+    .querySelectorAll("font[color]")
+    .forEach((el) => el.removeAttribute("color"));
 
   return div.innerHTML;
 }
@@ -820,8 +820,7 @@ export const dataTheme = ref<string>(
 
 if (typeof window !== "undefined") {
   new MutationObserver(() => {
-    const next =
-      document.documentElement.getAttribute("data-theme") || "light";
+    const next = document.documentElement.getAttribute("data-theme") || "light";
     if (next !== dataTheme.value) dataTheme.value = next;
   }).observe(document.documentElement, {
     attributes: true,
@@ -834,8 +833,18 @@ export function buildPercentageChange(value: number | null) {
     return { icon: "arrow-right", value: "0", color: "text-ink-gray-5" };
   }
   return {
-    icon: value > 0 ? "arrow-up-right" : value < 0 ? "arrow-down-left" : "arrow-right",
+    icon:
+      value > 0
+        ? "arrow-up-right"
+        : value < 0
+        ? "arrow-down-left"
+        : "arrow-right",
     value: value > 0 ? `+${value}` : value,
-    color: value > 0 ? "text-ink-red-4" : value < 0 ? "text-ink-green-3" : "text-ink-gray-5",
+    color:
+      value > 0
+        ? "text-ink-red-4"
+        : value < 0
+        ? "text-ink-green-3"
+        : "text-ink-gray-5",
   };
 }
