@@ -43,7 +43,7 @@
     >
       <Editor v-model="_content" :extensions="extensions" :editable="editable">
         <template #default>
-          <EditorBubbleMenu v-if="editable" :items="fullToolbar" />
+          <EditorBubbleMenu :items="fullToolbar" />
           <EditorContent
             :class="[
               'prose-f shrink text-p-sm transition-all duration-300 ease-in-out block w-full content',
