@@ -57,8 +57,10 @@
       <!-- Main Content -->
       <template v-else>
         <!-- Headers -->
+        <!-- ponytail: top-[106px] = tablist (46) + filter bar (60); remeasure
+             if either changes -->
         <div
-          class="grid items-center px-1 py-2 text-xs-medium text-ink-gray-5"
+          class="sticky top-[106px] z-[5] grid items-center bg-surface-base px-1 py-2 text-xs-medium text-ink-gray-5"
           :style="gridTemplateStyle"
         >
           <div
