@@ -31,6 +31,15 @@ export interface HDTicketStatus extends DocType {
   enabled: 0 | 1;
 }
 
+export interface HDTicketPriority extends DocType {
+  /** Level: Select */
+  level: 'Urgent' | 'High' | 'Medium' | 'Low';
+  /** Description: Small Text */
+  description?: string;
+  /** Disabled: Check */
+  disabled: 0 | 1;
+}
+
 // Last updated: 2026-06-28 13:51:31.692161
 export interface HDTicket extends DocType {
   /** Subject: Data */
@@ -40,7 +49,7 @@ export interface HDTicket extends DocType {
   /** Status: Link (HD Ticket Status) */
   status?: string;
   /** Priority: Link (HD Ticket Priority) */
-  priority?: string;
+  priority: string;
   /** Ticket Type: Link (HD Ticket Type) */
   ticket_type?: string;
   /** Team: Link (HD Team) */

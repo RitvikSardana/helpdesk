@@ -1,19 +1,7 @@
-import frappe
-
-BUILTIN_PRIORITIES = {
-    "Urgent": 100,
-    "High": 200,
-    "Medium": 300,
-    "Low": 400,
-}
-
-
 def execute():
-    for p in BUILTIN_PRIORITIES:
-        d = frappe.get_doc("HD Ticket Priority", p)
+    """No-op: `integer_value` was replaced by the `level` field.
 
-        if d.integer_value:
-            continue
-
-        d.integer_value = BUILTIN_PRIORITIES[p]
-        d.save()
+    Retained because this patch is referenced in patches.txt and already applied
+    on existing sites. Backfilling now happens in `backfill_priority_level`.
+    """
+    pass
