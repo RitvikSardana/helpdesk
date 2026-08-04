@@ -3,25 +3,26 @@
     class="flex h-9 w-full min-w-0 items-center rounded px-2 text-sm text-ink-gray-8"
     :class="{ 'bg-surface-gray-2': active }"
   >
-    <Avatar
-      v-if="command.avatar"
-      :image="command.avatar.image"
-      :label="command.avatar.label"
-      size="xs"
-      class="me-2.5 shrink-0"
-    />
-    <span
-      v-else-if="command.dotClass"
-      class="me-2.5 size-2 shrink-0 rounded-full bg-current"
-      :class="command.dotClass"
-    />
-    <component
-      :is="command.icon"
-      v-else-if="command.icon"
-      v-bind="command.iconProps"
-      class="me-2.5 size-3.5 shrink-0"
-      :class="active ? 'text-ink-gray-7' : 'text-ink-gray-5'"
-    />
+    <span class="me-2.5 flex size-4 shrink-0 items-center justify-center">
+      <Avatar
+        v-if="command.avatar"
+        :image="command.avatar.image"
+        :label="command.avatar.label"
+        size="xs"
+      />
+      <span
+        v-else-if="command.dotClass"
+        class="size-2 rounded-full bg-current"
+        :class="command.dotClass"
+      />
+      <component
+        :is="command.icon"
+        v-else-if="command.icon"
+        v-bind="command.iconProps"
+        class="size-3.5"
+        :class="active ? 'text-ink-gray-7' : 'text-ink-gray-5'"
+      />
+    </span>
 
     <span
       class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap"
